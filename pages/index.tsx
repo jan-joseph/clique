@@ -1,7 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+
+import Header from '../components/header'
+
 import styles from '../styles/Home.module.css'
+
+
 
 const Home: NextPage = () => {
   return (
@@ -12,11 +16,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className={styles.header}>
-        <p>make a </p><h1>CLIQUE</h1>
-      </header>
-        
-        
+      <Header/> 
+      
       <main className={styles.main}>
         <form className={styles.form}>
           <input className={styles.input}></input>
