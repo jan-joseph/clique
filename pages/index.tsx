@@ -1,13 +1,26 @@
 import type { NextPage } from 'next'
+import { useState } from 'react'
+
 import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 
 import Header from '../components/header'
 
-import styles from '../styles/Home.module.css'
 
 
 
 const Home: NextPage = () => {
+  const [inputValue, setInputValue] = useState('')
+
+  const onInputChange = (e:Event):void => {
+    console.log(inputValue);
+    setInputValue(e.target.value)
+  }
+
+  const handleSubmit = (e:Event):void => {
+    console.log('submitted');
+    
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -20,8 +33,8 @@ const Home: NextPage = () => {
       
       <main className={styles.main}>
         <form className={styles.form}>
-          <input className={styles.input}></input>
-          <button type='submit' className={styles.button}>GO!!</button>
+          <input placeHolder="Enter here" className={styles.input} onChange={onInputChange}></input>
+          <button type='submit' className={styles.button} onClick={handleSubmit}>GO!!</button>
         </form>
       </main>
 
