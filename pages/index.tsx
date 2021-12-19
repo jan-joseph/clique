@@ -13,13 +13,11 @@ const Home: NextPage = () => {
   const [inputValue, setInputValue] = useState('')
 
   const onInputChange = (e:Event):void => {
-    console.log(inputValue);
     setInputValue(e.target.value)
   }
 
   const handleSubmit = (e:Event):void => {
     console.log('submitted');
-    
   }
   return (
     <div className={styles.container}>
@@ -32,9 +30,10 @@ const Home: NextPage = () => {
       <Header/> 
       
       <main className={styles.main}>
+        <p className={styles.p}>type your interests here</p>
         <form className={styles.form}>
-          <input placeHolder="Enter here" className={styles.input} onChange={onInputChange}></input>
-          <button type='submit' className={styles.button} onClick={handleSubmit}>GO!!</button>
+          <input placeholder="cars, Sun Tzu, Vakkachan" className={styles.input} onChange={onInputChange}></input>
+          <button type='submit' className={styles.button} onClick={handleSubmit}>GO !!</button>
         </form>
       </main>
 
