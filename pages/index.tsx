@@ -7,6 +7,7 @@ import MainForm from "../components/MainForm"
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+  const [inputValue, setInputValue] = useState('')
 
   return (
     <div className={styles.container}>
@@ -16,7 +17,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <MainForm/>
+      <MainForm inputValue={inputValue} setInputValue={setInputValue} />
 
     </div>
   )
