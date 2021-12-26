@@ -3,6 +3,7 @@ import { useState } from "react";
 import {
 	atom,
 	selector,
+	RecoilValue,
 	useRecoilState,
 	useRecoilValue,
 	useSetRecoilState,
@@ -10,15 +11,11 @@ import {
 import Head from "next/head";
 
 import MainForm from "../components/MainForm";
-
+import inputFormValueState from "../store";
 import styles from "../styles/Home.module.css";
 
-const inputFormValueState = atom({
-	key: "inputFormValueState",
-	default: "",
-});
 const Home: NextPage = () => {
-	const inputValue = useRecoilValue(inputFormValueState);
+	const inputValue: string = useRecoilValue(inputFormValueState);
 	const setInputValue = useSetRecoilState(inputFormValueState);
 
 	return (
