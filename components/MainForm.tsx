@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 
 export default function MainForm({ inputValue, setInputValue }) {
-	// const [inputValue, setInputValue] = useState('')
-
 	const onInputChange = (e: Event): void => {
 		setInputValue(e.target.value);
 	};

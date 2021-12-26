@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { RecoilRoot, atom, RecoilState } from "recoil";
+import { RecoilRoot } from "recoil";
 import Layout from "../components/Layout";
 
 import "../styles/globals.css";
