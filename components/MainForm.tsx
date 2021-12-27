@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
+import { getDatabase } from "firebase/database";
 
+import app from "../firebase";
 import styles from "../styles/Home.module.css";
 
-export default function MainForm({ inputValue, setInputValue }) {
+const MainForm: FC<props> = ({ inputValue, setInputValue }) => {
+	console.log(getDatabase(app));
+
 	const onInputChange = (e: Event): void => {
 		setInputValue(e.target.value);
 	};
@@ -34,4 +38,6 @@ export default function MainForm({ inputValue, setInputValue }) {
 			</main>
 		</>
 	);
-}
+};
+
+export default MainForm;

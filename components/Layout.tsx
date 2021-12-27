@@ -1,12 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 
 import Header from "./Header";
 
-export default function Layout({ children }) {
+const Layout: FC<props> = ({ children }) => {
 	return (
-		<div>
+		<>
 			<Header />
 			<main>{children}</main>
-		</div>
+		</>
 	);
-}
+};
+
+export default Layout;
