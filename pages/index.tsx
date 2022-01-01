@@ -3,9 +3,9 @@ import { useState } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import Head from "next/head";
 
-import MainForm from "../components/Form/MainForm";
+import MainForm from "@components/Form/MainForm";
 import inputFormValueState from "../store";
-import styles from "../styles/Home.module.css";
+import styles from "@styles/Home.module.css";
 
 const Home: NextPage = () => {
   const inputValue: string = useRecoilValue(inputFormValueState);
