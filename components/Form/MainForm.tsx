@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SetterOrUpdater } from "recoil";
 
-import styles from "../../styles/Home.module.css";
+import styles from "@styles/Home.module.css";
 
 interface Props {
   inputValue: string;
