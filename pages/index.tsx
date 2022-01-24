@@ -8,17 +8,18 @@ import {
 import Head from "next/head";
 
 import MainForm from "@components/Form/MainForm";
+import WriteToFirestore from "@components/cloudFirestore/WriteToFirestore";
 import inputFormValueState from "../store";
 import styles from "@styles/Home.module.css";
-import firebase from "../firebase/initFirebase";
+import { db } from "../firebase/initFirebase";
 
-firebase();
 const Home: NextPage = () => {
 	const inputValue: string = useRecoilValue(inputFormValueState);
 	const setInputValue = useSetRecoilState(inputFormValueState);
 
 	return (
 		<div className={styles.container}>
+			<WriteToFirestore firestore={db} />
 			<Head>
 				<title>Clique</title>
 				<meta
