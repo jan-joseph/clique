@@ -18,7 +18,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@store/*": ["store/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@firebase/*":["firebase/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

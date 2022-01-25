@@ -1,42 +1,33 @@
-import React, { useState } from "react";
-import { SetterOrUpdater } from "recoil";
+import React, { useState } from 'react';
+import { writeToDb } from '@firebase/fireStore';
 
-import styles from "@styles/Home.module.css";
+import styles from '@styles/Home.module.css';
 
-interface Props {
-	inputValue: string;
-	setInputValue: SetterOrUpdater<string>;
-}
+export default function MainForm() {
+  const [interest, setInterest] = useState('');
+  const handleChange = (value: string): void => {
+    setInterest(value);
+  };
 
-export default function MainForm({
-	inputValue,
-	setInputValue,
-}: Props) {
-	const onInputChange = (
-		e: React.ChangeEvent<HTMLInputElement>
-	): void => {
-		setInputValue(e.target.value);
-	};
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    console.log(interest);
+    writeToDb(interest);
+  };
 
-	const handleSubmit = (
-		e: React.FormEvent<HTMLFormElement>
-	): void => {
-		e.preventDefault();
-	};
-
-	return (
-		<>
-			<p className={styles.p}>type your interests here</p>
-			<form className={styles.form} onSubmit={handleSubmit}>
-				<input
-					placeholder="cars, Sun Tzu, Vakkachan"
-					className={styles.input}
-					onChange={onInputChange}
-				></input>
-				<button type="submit" className={styles.button}>
-					GO !!
-				</button>
-			</form>
-		</>
-	);
+  return (
+    <>
+      <p className={styles.p}>type your interests here</p>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <input
+          placeholder='cars, Sun Tzu, Vakkachan'
+          className={styles.input}
+          onChange={({ target }) => handleChange(target.value)}
+        ></input>
+        <button type='submit' className={styles.button}>
+          GO !!
+        </button>
+      </form>
+    </>
+  );
 }
