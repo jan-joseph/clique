@@ -1,7 +1,0 @@
-FIREBASE_API_KEY = "AIzaSyAP_tPUf4tcmPVyXt8Nxfx6a1YACnKq7qs"
-FIREBASE_AUTH_DOMAIN = "clique-fb251.firebaseapp.com"
-FIREBASE_DATABASE_URL = "https://clique-fb251-default-rtdb.asia-southeast1.firebasedatabase.app"
-FIREBASE_STORAGE_BUCKET ="clique-fb251.appspot.com"
-FIREBASE_PROJECT_ID = "clique-fb251"
-FIREBASE_MESSAGING_SENDER_ID = "974101477534"
-FIREBASE_APP_ID = "1:974101477534:web:e37d134c5406709c5ca38f"
