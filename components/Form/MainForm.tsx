@@ -22,7 +22,7 @@ export default function MainForm() {
 	const profile: profile = useRecoilValue(profileState);
 	const setProfile = useSetRecoilState(profileState);
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit: Promise<void> = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const tempProfile = {
 			...profile,
