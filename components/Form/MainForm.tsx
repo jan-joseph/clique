@@ -24,7 +24,7 @@ export default function MainForm() {
 
 	const handleSubmit: Promise<void> = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		const tempProfile = {
+		const tempProfile: profile = {
 			...profile,
 			interests: interest.split(","),
 			timeStamp: Timestamp.now(),
