@@ -5,12 +5,9 @@ import Head from "next/head";
 
 import MainForm from "@components/Form/MainForm";
 import styles from "@styles/Home.module.css";
-import profileState from "../store";
+import profileState from "@store/index";
 
 const Home: NextPage = () => {
-	const profile: string = useRecoilValue(profileState);
-	const setProfile = useSetRecoilState(profileState);
-
 	return (
 		<div className={styles.container}>
 			<Head>
