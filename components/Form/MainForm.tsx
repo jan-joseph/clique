@@ -6,6 +6,7 @@ import Axios from "axios";
 import styles from "@styles/Home.module.css";
 import profileState from "@store/index";
 import axios from "axios";
+import { _axios } from "utilities/_axios";
 
 interface profile {
 	id: string;
@@ -31,12 +32,18 @@ export default function MainForm() {
 			status: "searching",
 		};
 		setProfile(tempProfile);
-		try {
-			const response = await axios.post("/api/interests", tempProfile);
-			console.log(response);
-		} catch (error) {
-			console.log(error);
-		}
+		// Writing the new Profile Data to DB
+		_axios({
+			method: "post",
+			url: "api/profile",
+			data: tempProfile,
+			onSuccess: (res) => {
+				console.log(res);
+			},
+			onError: (err) => {
+				console.log(err);
+			},
+		});
 	};
 
 	return (
