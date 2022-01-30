@@ -33,7 +33,7 @@ export default function MainForm() {
 		setProfile(tempProfile);
 		try {
 			const response = await axios.post("/api/interests", tempProfile);
-			console.log(reponse);
+			console.log(response);
 		} catch (error) {
 			console.log(error);
 		}
