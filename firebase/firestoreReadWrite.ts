@@ -6,7 +6,7 @@ import {
   Timestamp,
   CollectionReference,
 } from 'firebase/firestore';
-import { db } from '../firebase/initFirebase';
+import { db } from './initFirebase';
 async function writeToDb(interest: string) {
   try {
     const response = await addDoc(collection(db, 'interests'), {
