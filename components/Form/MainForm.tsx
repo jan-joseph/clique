@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { writeToDb } from "@firebase/firestoreReadWrite";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { Timestamp } from "firebase/firestore";
+import Axios from "axios";
 
 import styles from "@styles/Home.module.css";
-import { useRecoilValue, useSetRecoilState } from "recoil";
 import profileState from "@store/index";
-import { Timestamp } from "firebase/firestore";
+import axios from "axios";
 
 interface profile {
 	id: string;
@@ -21,7 +22,7 @@ export default function MainForm() {
 	const profile: profile = useRecoilValue(profileState);
 	const setProfile = useSetRecoilState(profileState);
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const tempProfile = {
 			...profile,
@@ -30,8 +31,12 @@ export default function MainForm() {
 			status: "searching",
 		};
 		setProfile(tempProfile);
-		console.log(tempProfile);
-		writeToDb(tempProfile);
+		try {
+			const response = await axios.post("/api/interests", tempProfile);
+			console.log(reponse);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
