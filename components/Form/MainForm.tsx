@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Timestamp } from "firebase/firestore";
-import Axios from "axios";
 
 import styles from "@styles/Home.module.css";
 import profileState from "@store/index";
-import axios from "axios";
 import { _axios } from "utilities/_axios";
 
 interface profile {
