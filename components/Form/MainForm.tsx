@@ -5,6 +5,7 @@ import { Timestamp } from "firebase/firestore";
 import styles from "@styles/Home.module.css";
 import profileState from "@store/index";
 import { _axios } from "utilities/_axios";
+import _text_cleanup from "utilities/_text_cleanup";
 
 interface profile {
 	id: string;
@@ -28,7 +29,7 @@ export default function MainForm({ setSearchState }: Props) {
 		e.preventDefault();
 		const tempProfile: profile = {
 			...profile,
-			interests: interest.split(","),
+			interests: _text_cleanup(interest),
 			timeStamp: Timestamp.now(),
 			status: "searching",
 		};
