@@ -12,7 +12,10 @@ interface profile {
 	status: string;
 	timeStamp: Object;
 }
-export default function MainForm() {
+interface Props {
+	setSearchState: Dispatch<SetStateAction<boolean>>;
+}
+export default function MainForm({ setSearchState }: Props) {
 	const [interest, setInterest] = useState("");
 	const handleChange = (value: string): void => {
 		setInterest(value);
@@ -37,6 +40,7 @@ export default function MainForm() {
 			data: tempProfile,
 			onSuccess: (res) => {
 				console.log(res);
+				setSearchState(true);
 			},
 			onError: (err) => {
 				console.log(err);
