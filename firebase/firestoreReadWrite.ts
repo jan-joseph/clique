@@ -18,7 +18,7 @@ interface profile {
 
 async function writeToDb(profile:profile) {  
   try {
-    const response = await addDoc(collection(db, 'interests'),profile);
+    const response = await addDoc(collection(db, 'profiles'),profile);
   } catch (error) {
     console.log(error);
   }
