@@ -6,7 +6,7 @@ const _axios = async ({method, url, data, onSuccess, onError}) => {
         const response = await axios({method,url,data})
         onSuccess(response)
     } catch(error) {
-        onError(errror)
+        onError(error)
     }
 }
 
