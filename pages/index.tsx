@@ -15,21 +15,28 @@ export const getServerSideProps = async () => {
 	const res = await readFromCollection("profiles");
 	const data = await res;
 
-	if (!data) {
+	const query = data.find((profile) => profile.id === profileState.id);
+	if (query) {
 		return {
-			data: "not-found",
+			props: {
+				data: data,
+				notFound: false,
+			},
 		};
 	}
 	return {
-		props: {
-			data: data,
-		},
+		props: { data: null, notFound: false },
 	};
 };
 
-const Home: NextPage = ({ data }) => {
+const Home: NextPage = ({ data, notFound }) => {
 	const [searching, setSearching] = useState(false);
-	console.log(data);
+	if (data) {
+		console.log(data[0].id);
+	} else {
+		console.log(notFound);
+	}
+	console.log("Profile ID " + profileState.id);
 
 	return (
 		<div className={styles.container}>
