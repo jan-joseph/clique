@@ -7,8 +7,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     case 'GET':
       try {
         console.log(res);
-        const interests = await readFromCollection('profiles');
-        res.status(200).json({ interests });
+        const profiles = await readFromCollection('profiles');
+        res.status(200).json({ profiles });
       } catch (err) {
         res.status(500).statusMessage("Request not permitted");
         console.log(err);
