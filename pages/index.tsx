@@ -1,15 +1,36 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import Head from "next/head";
 
-import MainForm from "@components/Form/MainForm";
 import styles from "@styles/Home.module.css";
-import profileState from "@store/index";
+import MainForm from "@components/Form/MainForm";
 import Search from "@components/Search/Search";
+import profileState from "@store/index";
 
-const Home: NextPage = () => {
+import { _axios } from "utilities/_axios";
+import { readFromCollection } from "@firebase/firestoreReadWrite";
+
+export const getServerSideProps = async () => {
+	const res = await readFromCollection("profiles");
+	const data = await res;
+
+	if (!data) {
+		return {
+			data: "not-found",
+		};
+	}
+	return {
+		props: {
+			data: data,
+		},
+	};
+};
+
+const Home: NextPage = ({ data }) => {
 	const [searching, setSearching] = useState(false);
+	console.log(data);
+
 	return (
 		<div className={styles.container}>
 			<Head>
