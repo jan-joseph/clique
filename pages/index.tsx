@@ -11,6 +11,13 @@ import profileState from "@store/index";
 import { _axios } from "utilities/_axios";
 import { readFromCollection } from "@firebase/firestoreReadWrite";
 
+interface profile {
+	id: string;
+	interests: string[];
+	status: string;
+	timeStamp: Object;
+}
+
 export const getServerSideProps = async () => {
 	const res = await readFromCollection("profiles");
 	const data = await res;
@@ -19,24 +26,26 @@ export const getServerSideProps = async () => {
 	if (query) {
 		return {
 			props: {
-				data: data,
+				data: query,
 				notFound: false,
 			},
 		};
 	}
 	return {
-		props: { data: null, notFound: false },
+		props: { data: null, notFound: true },
 	};
 };
 
 const Home: NextPage = ({ data, notFound }) => {
 	const [searching, setSearching] = useState(false);
+	const profile: profile = useRecoilValue(profileState);
+
 	if (data) {
-		console.log(data[0].id);
+		console.log(data.data.id);
 	} else {
 		console.log(notFound);
 	}
-	console.log("Profile ID " + profileState.id);
+	console.log("Profile ID " + profile.id);
 
 	return (
 		<div className={styles.container}>
