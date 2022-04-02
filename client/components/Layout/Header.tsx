@@ -1,5 +1,5 @@
-import React, { ReactElement } from "react";
-import styles from "@styles/Header.module.css";
+import React, { ReactElement } from 'react';
+import styles from '@styles/Header.module.css';
 
 export default function Header(): ReactElement {
   return (

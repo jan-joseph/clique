@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { Timestamp } from "firebase/firestore";
+import { useState } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { Timestamp } from 'firebase/firestore';
 
-import styles from "@styles/Home.module.css";
-import profileState from "@store/index";
-import api from "utilities/api";
+import styles from '@styles/Home.module.css';
+import profileState from '@store/index';
+import api from 'utilities/api';
 import cleanupText from 'utilities/cleanupText';
 
 interface profile {
@@ -17,7 +17,7 @@ interface Props {
   setSearchState: Dispatch<SetStateAction<boolean>>;
 }
 export default function MainForm({ setSearchState }: Props) {
-  const [interest, setInterest] = useState("");
+  const [interest, setInterest] = useState('');
   const handleChange = (value: string): void => {
     setInterest(value);
   };
@@ -25,17 +25,19 @@ export default function MainForm({ setSearchState }: Props) {
   const profile: profile = useRecoilValue(profileState);
   const setProfile = useSetRecoilState(profileState);
 
-  const handleSubmit: Promise<void> = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit: Promise<void> = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
     const tempProfile: profile = {
       ...profile,
       interests: cleanupText(interest),
       timeStamp: Timestamp.now(),
-      status: "searching",
+      status: 'searching',
     };
     setProfile(tempProfile);
     // Writing the new Profile Data to DB
-    api.post({ url: "api/profile", data: tempProfile }).then((res) => {
+    api.post({ url: 'api/profile', data: tempProfile }).then((res) => {
       console.log(res);
       setSearchState(true);
     });
