@@ -1,0 +1,64 @@
+.container {
+  padding: 0;
+}
+
+.main {
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.font {
+  font-size: 2rem;
+}
+
+.p {
+  composes: font;
+  composes: secondary-font from global;
+
+  font-style: italic;
+  font-weight: 200;
+}
+
+.input {
+  composes: font;
+  composes: secondary-font from global;
+
+  height: 60px;
+  width: 40vw;
+  padding: 1rem 2rem;
+  border-radius: 20px 0 0 20px;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.form {
+  display: flex;
+}
+.button {
+  transition: all 0.5s ease-out;
+  composes: font;
+  composes: primary-color from global;
+  composes: primary-font from global;
+
+  font-weight: 700;
+
+  color: white;
+  height: 60px;
+  width: 6vw;
+  padding: 1rem 0;
+  border-radius: 0 20px 20px 0;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+}
+
+.button:hover {
+  transition: all 0.5s ease-out;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}

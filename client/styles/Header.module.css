@@ -1,0 +1,22 @@
+.header {
+  position: absolute;
+  width: 100vw;
+  height: 15vh;
+  background: #282c34;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p {
+  composes: primary-font from global;
+  font-size: 48px;
+  margin: 0 1rem;
+}
+
+.h1 {
+  composes: primary-font from global;
+  font-size: 60px;
+  font-weight: bold;
+}
